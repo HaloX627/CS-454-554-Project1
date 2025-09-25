@@ -44,7 +44,7 @@ After updating, run sudo systemctl restart systemd-journald
 - NGINX provides a stable, standard HTTP interface.
 
 # Alternative
-- Node/Express was suggested; Python/Flask chosen for familiarity and rapid development.
+Node/Express was suggested; Python/Flask chosen for familiarity and rapid development.
 
 ---
 

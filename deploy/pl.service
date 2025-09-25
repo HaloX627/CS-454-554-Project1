@@ -1,0 +1,13 @@
+[Unit]
+Description=Flask Pounds-to-Kilograms Converter
+After=network.target
+
+[Service]
+User=ec2-user
+WorkingDirectory=/home/ec2-user/pl
+ExecStart=/home/ec2-user/.local/bin/gunicorn -w 2 -b 0.0.0.0:8080 convert:app
+Restart=always
+Environment="PATH=/home/ec2-user/.local/bin:/usr/bin"
+
+[Install]
+WantedBy=multi-user.target

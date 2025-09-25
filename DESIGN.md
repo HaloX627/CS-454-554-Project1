@@ -31,6 +31,13 @@ Client → NGINX (80) → Gunicorn (127.0.0.1:8080) → Flask (convert.py:app).
 - Service runs as non-root (ec2-user).
 - Logs handled by journald; optional cap via etc/systemd/journald.conf.
 
+# Log Rotation
+The service logs are captured by systemd via journald. To prevent unlimited growth, log size can be capped in /etc/systemd/journald.conf:
+[Journal]
+SystemMaxUse=100
+After updating, run sudo systemctl restart systemd-journald
+
+
 # Reliability
 - Managed by systemd: auto-restarts, survives reboot.
 - systemctl enable ensures startup at boot.
